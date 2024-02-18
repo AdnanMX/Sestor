@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('uang_kembali');
             $table->integer('total_harga');
             $table->timestamps();
+            $table->softDeletes();
 
         });
     }

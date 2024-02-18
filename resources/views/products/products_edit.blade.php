@@ -47,8 +47,8 @@
           <label>Kategori</label>
           <select name="kategori" class="form-control" style="font-size: 12px;" required>
             <option value="" disabled selected>Pilih Kategori</option>
-            <option value="barang" {{ $products->kategori == 'barang' ? 'selected' : '' }}>Barang</option>
-            <option value="jasa" {{ $products->kategori == 'jasa' ? 'selected' : '' }}>Jasa</option>
+            <option value="barang" {{ $products->kategori == 'barang' ? 'selected' : '' }}>Sparepart</option>
+            <option value="jasa" {{ $products->kategori == 'jasa' ? 'selected' : '' }}>Servis</option>
           </select>
           @error('kategori')
           <p>{{ $message }}</p>

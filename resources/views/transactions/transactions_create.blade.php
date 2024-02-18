@@ -65,7 +65,7 @@
 
                     <div class="form-group">
                         <label>No Polisi</label>
-                        <input name="no_polisi" type="text" style="font-size: 12px;" class="form-control" required>
+                        <input name="no_polisi" type="text" style="font-size: 12px;" class="form-control" value="-" required>
                         @error('no_polisi')
                         <p>{{ $message }}</p>
                         @enderror
@@ -73,14 +73,14 @@
 
                     <div class="form-group">
                         <label>Type</label>
-                        <input name="type" type="text" style="font-size: 12px;" class="form-control" required>
+                        <input name="type" type="text" style="font-size: 12px;" class="form-control"  value="-" required>
                         @error('type')
                         <p>{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="form-group">
-                        <label>Pilih Servis</label>
+                        <label>Pilih Produk</label>
                         <select class="select2-single-placeholder form-control" id="id_products">
                             <option value="" disabled selected>Pilih</option>
                             @foreach ($productsM as $products)
@@ -88,9 +88,9 @@
                                 data-harga_produk="{{ $products->harga_produk }}" data-id="{{ $products->id }}">
                                 @if($products->kategori ==
                                 'barang')
-                                <span>Barang</span>
+                                <span>Sparepart</span>
                                 @elseif($products->kategori == 'jasa')
-                                <span> Jasa</span>
+                                <span>Servis</span>
                                 @else
                                 {{ $products->kategori }}
                                 @endif | Nama: {{ $products->nama_produk }} | Harga: {{ number_format($products->harga_produk, 0,

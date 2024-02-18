@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('harga_produk');
             $table->enum('kategori',['barang', 'jasa']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

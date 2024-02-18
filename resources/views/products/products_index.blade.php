@@ -67,9 +67,9 @@
                                 number_format($products->harga_produk, 0, ',', '.') }}</td>
                             <td style="text-align: center; vertical-align: middle;"> @if($products->kategori ==
                                 'barang')
-                                <span>Barang</span>
+                                <span>Sparepart</span>
                                 @elseif($products->kategori == 'jasa')
-                                <span> Jasa</span>
+                                <span>Servis</span>
                                 @else
                                 {{ $products->kategori }}
                                 @endif

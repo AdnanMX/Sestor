@@ -43,14 +43,14 @@
                       @csrf
                       <div class="input-group mb-3">
                         <input name="username" value="{{ old('username') }}" type="username" class="form-control"
-                          placeholder="Username">
+                          placeholder="Username" required>
                         <div class="input-group-append">
                           <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
                       </div>
                       <div class="input-group mb-3">
                         <input name="password" id="password" type="password" class="form-control"
-                          placeholder="Password">
+                          placeholder="Password" required>
                         <div class="input-group-append">
                           <span class="input-group-text" onclick="togglePassword()">
                             <i id="password-toggle" class="fas fa-lock"></i>

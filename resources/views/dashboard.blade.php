@@ -17,7 +17,8 @@
           <div class="row align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-uppercase mb-1">Produk</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalProducts = DB::table('products')->count('id') }}</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalProducts = DB::table('products')->whereNull('deleted_at')->count('id') }}
+</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-boxes fa-2x text-primary"></i>
@@ -34,7 +35,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-uppercase mb-1">Transaksi</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalTransactions = DB::table('transactions')->count('id') }}</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalTransactions = DB::table('transactions')->whereNull('deleted_at')->count('id') }}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-exchange-alt fa-2x text-warning"></i>
@@ -50,8 +51,8 @@
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-uppercase mb-1">User</div>
-              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totalUsers = DB::table('users')->count('id') }}</div>
+              <div class="text-xs font-weight-bold text-uppercase mb-1">Pengguna</div>
+              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totalUsers = DB::table('users')->whereNull('deleted_at')->count('id') }}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-users fa-2x text-info"></i>
@@ -68,7 +69,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-uppercase mb-1">Pendapatan</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">Rp {{ number_format($totalIncome = DB::table('transactions')->sum('total_harga'), 0, ',', '.') }}</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">Rp {{ number_format($totalIncome = DB::table('transactions')->whereNull('deleted_at')->sum('total_harga'), 0, ',', '.') }}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-dollar-sign fa-2x text-success"></i>

@@ -74,9 +74,9 @@
                 <td>{{ $products->nama_produk }}</td>
                 <td>{{ number_format($products->harga_produk, 0, ',', '.') }}</td>
                 <td>@if($products->kategori == 'barang')
-                    Barang
+                Sparepart
                     @elseif($products->kategori == 'jasa')
-                    Jasa
+                    Servis
                     @else {{ $products->kategori }}
                     @endif</td>
                 <td>{{ $products->created_at }}</td>
@@ -95,8 +95,8 @@
         <div class="total-section">
             <h3>Ringkasan</h3>
             <span>Jumlah Produk: {{ $jumProduk }}</span><br>
-            <span>Barang: {{ $kategoriCounts['barang'] }}</span><br>
-            <span>Jasa: {{ $kategoriCounts['jasa'] }}</span><br>
+            <span>Sparepart: {{ $kategoriCounts['barang'] }}</span><br>
+            <span>Servis: {{ $kategoriCounts['jasa'] }}</span><br>
         </div>
     </div>
 </body>

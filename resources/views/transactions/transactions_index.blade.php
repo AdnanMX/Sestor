@@ -39,7 +39,7 @@
       @if (in_array(Auth::user()->role, ['owner']))
       <form action="{{ route('transactions.pdfFilter') }}" method="GET" style="font-size: 12px;">
         <div class="form-group">
-          <label>Pilih Range Tanggal Laporan:</label>
+          <label>Pilih Range Tanggal:</label>
           <div class="input-daterange input-group">
             <input type="date" class="input-sm form-control" title="Tanggal Awal" data-toggle="tooltip"
               data-placement="top" name="start_date" style="font-size: 12px;" />
@@ -105,6 +105,14 @@
                 <a href="{{ route('transactions.edit', $transactions->id) }}"
                   style="font-size: 12px; margin-bottom: 5px;" class="btn btn-warning btn-sm" title="Edit"
                   data-toggle="tooltip" data-placement="top"><i class="fas fa-pencil-alt"></i></a>
+                  <form action="{{ route('transactions.destroy', $transactions->id) }}" method="POST">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" style="font-size: 12px; margin-bottom: 5px;" class="btn btn-danger btn-sm"
+                    title="Hapus" data-toggle="tooltip" data-placement="top"
+                    onclick="return confirm('Konfirmasi Hapus Transaksi !?')">
+                    <i class="fas fa-trash-alt"></i></button>
+                </form>
               </td>
               @endif
             </tr>

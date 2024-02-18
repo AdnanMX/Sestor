@@ -21,7 +21,11 @@ class ProductsC extends Controller
         ]);
 
         $subtitle = "Daftar Produk";
-        $productsM = ProductsM::select('products.*')->paginate(10);
+        $productsM = ProductsM::all();
+        // Melihat Semua
+        // $productsM = ProductsM::withTrashed()->get();
+        // Melihat yg di hapus saja
+        // $productsM = ProductsM::onlyTrashed()->get();
         return view('products.products_index', compact('subtitle', 'productsM'));
     }
 
@@ -115,6 +119,7 @@ class ProductsC extends Controller
             'activity' => 'User Menghapus Halaman Produk'
         ]);
         productsM::where('id', $id)->delete();
+        // productsM::where('id', $id)->forcedelete();
         return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus');
     }
 

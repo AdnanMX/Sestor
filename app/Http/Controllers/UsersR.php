@@ -21,6 +21,10 @@ class UsersR extends Controller
         ]);
         $subtitle = "Daftar Pengguna";
         $UsersM = User::all();
+        // Melihat Semua
+        // $UsersM = User::withTrashed()->get();
+        // Melihat yg di hapus saja
+        // $UsersM = User::onlyTrashed()->get();
         return view('users.users_index', compact('subtitle', 'UsersM'));
     }
 
@@ -90,9 +94,9 @@ class UsersR extends Controller
             // 'username' => 'required',
             'role' => 'required'
         ]);
-   
+
         $data = request()->except(['_token', '_method', 'submit']);
-   
+
         User::where('id', $id)->update($data);
         return redirect()->route('users.index')->with('success', 'Pengguna berhasil diperbaharui');
     }
@@ -105,6 +109,7 @@ class UsersR extends Controller
             'activity' => 'User Menghapus User'
         ]);
         User::where('id', $id)->delete();
+        // User::where('id', $id)->forcedelete();
         return redirect()->route('users.index')->with('success', 'Pengguna berhasil dihapus');
     }
 
@@ -152,5 +157,5 @@ class UsersR extends Controller
         return $pdf->stream('users.pdf');
     }
 
-    
+
 }

@@ -81,7 +81,7 @@
                     </div>
 
                    <div class="form-group">
-                        <label>Pilih Servis</label>
+                        <label>Pilih Produk</label>
                         <select class="select2-single-placeholder form-control" id="id_products">
                             <option value="" disabled selected>Pilih</option>
                             @foreach ($productsM as $products)
@@ -89,9 +89,9 @@
                                 data-harga_produk="{{ $products->harga_produk }}" data-id="{{ $products->id }}">
                                 @if($products->kategori ==
                                 'barang')
-                                <span>Barang</span>
+                                <span>Sparepart</span>
                                 @elseif($products->kategori == 'jasa')
-                                <span> Jasa</span>
+                                <span>Servis</span>
                                 @else
                                 {{ $products->kategori }}
                                 @endif | Nama: {{ $products->nama_produk }} | Harga: {{ number_format($products->harga_produk, 0,

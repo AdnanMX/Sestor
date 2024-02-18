@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('harga_produk');
             $table->integer('quantity');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('id_transactions')->references('id')->on('transactions')->onDelete('cascade');
             $table->foreign('id_products')->references('id')->on('products')->onDelete('cascade');

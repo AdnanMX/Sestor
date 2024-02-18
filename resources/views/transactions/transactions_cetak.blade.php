@@ -52,10 +52,12 @@
             float: right;
             font-size: 14px;
         }
-        .data{
+
+        .data {
             font-size: 14px;
         }
-        .datac{
+
+        .datac {
             font-size: 14px;
             text-align: left;
         }
@@ -70,42 +72,54 @@
             <span class="item-label">Nomor</span> : <a class="data">{{ $transactionsM->nomor_unik }}</a>
         </div>
         <div class="nota-item">
-            <span class="item-label">Tanggal</span> : <a class="data">{{ date('d/m/Y') }}</a> <a class="datac"> {{ date('H:i:s') }}</a>
+            <span class="item-label">Tanggal</span> : <a class="data">{{ date('d/m/Y') }}</a> <a class="datac"> {{
+                date('H:i:s') }}</a>
         </div>
         <div class="dashed-line"></div>
         <div class="nota-item">
             <span class="item-label">Pelanggan</span> : <a class="data">{{ $transactionsM->nama_pelanggan }}</a>
         </div>
+        @if($transactionsM->no_polisi != '-')
         <div class="nota-item">
             <span class="item-label">No Polisi</span> : <a class="data">{{ $transactionsM->no_polisi }}</a>
         </div>
+        @endif
+
+        @if($transactionsM->type != '-')
         <div class="nota-item">
             <span class="item-label">Type</span> : <a class="data">{{ $transactionsM->type }}</a>
         </div>
+        @endif
+
 
         <div class="dashed-line"></div>
 
         @foreach($transactionsM->items as $item)
         <div class="nota-item">
-            <a class="data">{{ $item->nama_produk }} <br> {{ $item->quantity }}X {{ number_format($item->harga_produk, 0, ',', '.') }}</a>  <a class="harga-total">{{ number_format($item->harga_produk * $item->quantity, 0, ',', '.') }}</a>
+            <a class="data">{{ $item->nama_produk }} <br> {{ $item->quantity }}X {{ number_format($item->harga_produk,
+                0, ',', '.') }}</a> <a class="harga-total">{{ number_format($item->harga_produk * $item->quantity, 0,
+                ',', '.') }}</a>
+        </div>
     </div>
-        </div>
-        @endforeach
+    @endforeach
 
-        <div class="dashed-line"></div>
-        <div class="nota-item">
-            <span class="item-label">Total</span> : <a class="data">{{ number_format($transactionsM->total_harga, 0, ',', '.') }}</a>
-        </div>
-        <div class="nota-item">
-            <span class="item-label">Tunai</span> : <a class="data">{{ number_format($transactionsM->uang_bayar, 0, ',', '.') }}</a>
-        </div>
-        <div class="nota-item">
-            <span class="item-label">Kembalian</span> : <a class="data">{{ number_format($transactionsM->uang_kembali, 0, ',', '.') }}</a>
-        </div>
-        <div class="dashed-line"></div>
-        <div class="thank-you">
-            ~Terima Kasih atas Kunjungan Anda~
-        </div>
+    <div class="dashed-line"></div>
+    <div class="nota-item">
+        <span class="item-label">Total</span> : <a class="data">{{ number_format($transactionsM->total_harga, 0, ',',
+            '.') }}</a>
+    </div>
+    <div class="nota-item">
+        <span class="item-label">Tunai</span> : <a class="data">{{ number_format($transactionsM->uang_bayar, 0, ',',
+            '.') }}</a>
+    </div>
+    <div class="nota-item">
+        <span class="item-label">Kembalian</span> : <a class="data">{{ number_format($transactionsM->uang_kembali, 0,
+            ',', '.') }}</a>
+    </div>
+    <div class="dashed-line"></div>
+    <div class="thank-you">
+        ~Terima Kasih atas Kunjungan Anda~
+    </div>
     </div>
 </body>
 
