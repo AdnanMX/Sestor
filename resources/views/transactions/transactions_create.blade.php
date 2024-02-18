@@ -65,7 +65,7 @@
 
                     <div class="form-group">
                         <label>No Polisi</label>
-                        <input name="no_polisi" type="text" style="font-size: 12px;" class="form-control" value="-" required>
+                        <input name="no_polisi" type="text" style="font-size: 12px;" class="form-control" required>
                         @error('no_polisi')
                         <p>{{ $message }}</p>
                         @enderror
@@ -73,7 +73,7 @@
 
                     <div class="form-group">
                         <label>Type</label>
-                        <input name="type" type="text" style="font-size: 12px;" class="form-control"  value="-" required>
+                        <input name="type" type="text" style="font-size: 12px;" class="form-control" required>
                         @error('type')
                         <p>{{ $message }}</p>
                         @enderror
