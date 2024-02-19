@@ -27,11 +27,11 @@
         {{ $message }}
       </div>
       @endif
-
+      @if (in_array(Auth::user()->role, ['admin']))
       <a href="{{ route('users.create') }}" class="btn btn-success" style="font-size: 12px;"><i class="fas fa-plus"></i>
         Tambah Pengguna</a>
-
-      @if (in_array(Auth::user()->role, ['admin']))
+        @endif
+      @if (in_array(Auth::user()->role, ['admin','owner']))
       <a href="{{ url('users/pdf') }}" style="font-size: 12px;" class="btn btn-primary">
         <i class="fas fa-download"></i> Laporan
       </a>
@@ -45,7 +45,9 @@
               <th style="text-align: center; vertical-align: middle;">Nama Lengkap</th>
               <th style="text-align: center; vertical-align: middle;">Username</th>
               <th style="text-align: center; vertical-align: middle;">Role</th>
+              @if (in_array(Auth::user()->role, ['admin']))
               <th style="text-align: center; vertical-align: middle;">Aksi</th>
+              @endif
             </tr>
           </thead>
           <tbody>
@@ -56,6 +58,7 @@
               <td style="text-align: center; vertical-align: middle;">{{ $users->nama}}</td>
               <td style="text-align: center; vertical-align: middle;">{{ $users->username}}</td>
               <td style="text-align: center; vertical-align: middle;">{{ $users->role}}</td>
+              @if (in_array(Auth::user()->role, ['admin']))
               <td style="text-align: center; vertical-align: middle;">
 
                 <a href="{{ route('users.edit', $users->id) }}" class="btn btn-warning btn-sm" title="Edit"
@@ -77,6 +80,7 @@
                   </button>
                 </form>
               </td>
+              @endif
             </tr>
             @endforeach
             @else

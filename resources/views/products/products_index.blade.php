@@ -35,7 +35,7 @@
                 <i class="fas fa-plus"></i> Tambah Produk
             </a>
             @endif
-            @if (in_array(Auth::user()->role, ['admin']))
+            @if (in_array(Auth::user()->role, ['admin','owner']))
             <a href="{{ url('products/pdf') }}" style="font-size: 12px;" class="btn btn-primary">
                 <i class="fas fa-download"></i> Laporan
              </a>

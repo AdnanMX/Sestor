@@ -40,7 +40,7 @@ Route::get('transactions/cetak/{id}', [TransactionsC::class, 'cetak'])->name('tr
 Route::get('transactions/detail/{id}', [TransactionsC::class, 'detail'])->name('transactions.detail')->middleware('userAkses:admin,kasir,owner');
 
 //User
-Route::resource('users', UsersR::class)->middleware('userAkses:admin');
+Route::resource('users', UsersR::class)->middleware('userAkses:admin,owner');
 Route::get('users/changepassword/{id}', [UsersR::class, 'changepassword'])->name('users.changepassword')->middleware('userAkses:admin');
 Route::put('users/change/{id}', [UsersR::class, 'change'])->name('users.change')->middleware('userAkses:admin');
 Route::delete('users/destroy/{id}', [UsersR::class, 'destroy'])->name('users.destroy')->middleware('userAkses:admin');

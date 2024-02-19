@@ -7,7 +7,7 @@
 </li>
 
 <!-- Products Menu -->
-@if (in_array(Auth::user()->role, ['admin']))
+@if (in_array(Auth::user()->role, ['admin','owner']))
 <li class="nav-item @yield('active-products')">
     <a class="nav-link" href="{{ url('/products') }}">
         <i class="fas fa-fw fa-boxes"></i>
@@ -27,7 +27,7 @@
 @endif
 
 <!-- Users Menu -->
-@if (in_array(Auth::user()->role, ['admin']))
+@if (in_array(Auth::user()->role, ['admin','owner']))
 <li class="nav-item @yield('active-users')">
     <a class="nav-link" href="{{ url('/users') }}">
         <i class="fas fa-fw fa-users"></i>
