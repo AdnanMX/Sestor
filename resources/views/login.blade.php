@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="{{ url('img/logo/LogoNew2.png') }}" rel="icon">
-  <title>Sestor - Login</title>
+  <title>SESTOR</title>
   <link href="{{ url('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ url('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ url('css/ruang-admin.min.css') }}" rel="stylesheet">
