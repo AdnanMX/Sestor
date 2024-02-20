@@ -49,7 +49,7 @@
             </div>
             <input type="date" class="input-sm form-control" title="Tanggal Akhir" data-toggle="tooltip"
               data-placement="top" name="end_date" style="font-size: 12px;" />
-            <button type="submit" class="btn btn-primary" style=" margin-left: 10px; font-size: 12px;"><i
+            <button type="submit" class="btn btn-primary" style=" margin-left: 10px; font-size: 12px;" target="_blank"><i
                 class="fas fa-download"></i> Laporan</button>
           </div>
         </div>
@@ -99,7 +99,7 @@
                 @if (in_array(Auth::user()->role, ['kasir']))
                 <a href="{{ url('transactions/cetak', $transactions->id) }}"
                   style="font-size: 12px; margin-bottom: 5px;" class="btn btn-primary btn-sm" title="Cetak"
-                  data-toggle="tooltip" data-placement="top"><i class="fas fa-print"></i></a>
+                  data-toggle="tooltip" data-placement="top" target="_blank"><i class="fas fa-print"></i></a>
                 @endif
                 @if (in_array(Auth::user()->role, ['admin']))
                 <a href="{{ route('transactions.edit', $transactions->id) }}"

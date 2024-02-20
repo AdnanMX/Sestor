@@ -36,7 +36,7 @@
             </a>
             @endif
             @if (in_array(Auth::user()->role, ['admin','owner']))
-            <a href="{{ url('products/pdf') }}" style="font-size: 12px;" class="btn btn-primary">
+            <a href="{{ url('products/pdf') }}" style="font-size: 12px;" class="btn btn-primary" target="_blank">
                 <i class="fas fa-download"></i> Laporan
              </a>
             @endif
